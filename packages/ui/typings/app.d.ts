@@ -12,5 +12,6 @@ export interface QueueActions {
   retryAll: (queueName: string) => () => Promise<void>;
   cleanAllDelayed: (queueName: string) => () => Promise<void>;
   cleanAllFailed: (queueName: string) => () => Promise<void>;
+  cleanAllWaiting: (queueName: string) => () => Promise<void>;
   cleanAllCompleted: (queueName: string) => () => Promise<void>;
 }

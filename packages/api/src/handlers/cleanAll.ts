@@ -12,7 +12,6 @@ async function cleanAll(
   const { queueStatus } = req.params;
 
   const GRACE_TIME_MS = 5000;
-
   await queue.clean(queueStatus as any, GRACE_TIME_MS);
 
   return {

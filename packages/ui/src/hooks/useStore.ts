@@ -95,6 +95,13 @@ export const useStore = (api: Api): Store => {
       'Are you sure that you want to clean all failed jobs?'
     );
 
+    const cleanAllWaiting = (queueName: string) =>
+    withConfirmAndUpdate(
+      () => api.cleanAllWaiting(queueName),
+      'Are you sure that you want to clean all waiting jobs?'
+    );
+    
+
   const cleanAllCompleted = (queueName: string) =>
     withConfirmAndUpdate(
       () => api.cleanAllCompleted(queueName),
@@ -113,6 +120,7 @@ export const useStore = (api: Api): Store => {
       cleanJob,
       cleanAllDelayed,
       cleanAllFailed,
+      cleanAllWaiting,
       cleanAllCompleted,
       getJobLogs,
     },

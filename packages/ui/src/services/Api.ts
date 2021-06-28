@@ -34,6 +34,10 @@ export class Api {
     return this.axios.put(`/queues/${encodeURIComponent(queueName)}/clean/failed`);
   }
 
+  public cleanAllWaiting(queueName: string): Promise<void> {
+    return this.axios.put(`/queues/${encodeURIComponent(queueName)}/clean/wait`);
+  }
+
   public cleanAllCompleted(queueName: string): Promise<void> {
     return this.axios.put(`/queues/${encodeURIComponent(queueName)}/clean/completed`);
   }
